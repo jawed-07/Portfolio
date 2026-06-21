@@ -935,7 +935,16 @@
           <textarea rows="4" placeholder="Hey Jawed, I'd love to connect..." id="cMsg"></textarea>
         </div>
         <button class="form-submit" onclick="submitForm()">Send Message ✦</button>
-      </div>
+
+<a
+  href="https://wa.me/918905457280?text=Hi%20Jawed,%20I%20want%20to%20connect."
+  target="_blank"
+  rel="noopener noreferrer"
+  class="form-submit whatsapp-btn"
+  style="display:block;text-align:center;margin-top:15px;text-decoration:none;background:#25D366;"
+>
+  Chat on WhatsApp
+</a>      </div>
     </div>
   </div>
 </section>
@@ -1186,6 +1195,41 @@ function submitForm() {
   document.getElementById('cEmail').value='';
   document.getElementById('cMsg').value='';
 }
+
+  emailjs.init("K42cVNtt4xshFpgkS");
+
+function submitForm() {
+  const name = document.getElementById('cName').value;
+  const email = document.getElementById('cEmail').value;
+  const msg = document.getElementById('cMsg').value;
+
+  if (!name || !email || !msg) {
+    alert('Please fill all fields!');
+    return;
+  }
+
+  emailjs.send(
+    "service_uileiao",
+    "template_ry47n42",
+    {
+      from_name: name,
+      from_email: email,
+      message: msg
+    }
+  )
+  .then(function () {
+    alert(`Thanks ${name}! Your message has been sent successfully. 🚀`);
+
+    document.getElementById('cName').value = '';
+    document.getElementById('cEmail').value = '';
+    document.getElementById('cMsg').value = '';
+  })
+  .catch(function (error) {
+    console.error(error);
+    alert('Failed to send message. Please try again.');
+  });
+}
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 // Initialize
 initTTT();
