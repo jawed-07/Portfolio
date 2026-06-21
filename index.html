@@ -956,7 +956,7 @@
 </footer>
 
 <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
-
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
 // NAVBAR scroll effect
 window.addEventListener('scroll', () => {
@@ -1186,8 +1186,9 @@ document.addEventListener('keydown', e => {
 
 // Contact form
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  emailjs.init("K42cVNtt4xshFpgkS");
+  emailjs.init({
+  publicKey: "K42cVNtt4xshFpgkS"
+});
 
 function submitForm() {
   const name = document.getElementById('cName').value;
