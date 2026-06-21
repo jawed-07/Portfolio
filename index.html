@@ -1215,9 +1215,9 @@ function submitForm() {
     document.getElementById('cMsg').value = '';
   })
   .catch(function (error) {
-    console.error(error);
-    alert('Failed to send message. Please try again.');
-  });
+  console.log("EMAILJS ERROR:", error);
+  alert("Failed to send message");
+});
 }
 
 // Initialize
